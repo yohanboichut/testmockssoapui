@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="08d7bf44-0bb4-493d-ba10-5f724d1ac0bd" activeEnvironment="Default" name="Project 1" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="32f2ade6-974a-4986-b7a0-4face08a0e6d" wadlVersion="http://wadl.dev.java.net/2009/02" name="Gestion des utilisateurs" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:description>Spécification de la gestion des utilisateurs</con:description><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://AntHueo:8089/</con:endpoint><con:endpoint>http://localhost:8089</con:endpoint></con:endpoints><con:resource name="/gestionutilisateursws" path="/gestionutilisateursws" id="2bf1a464-f733-4ce0-b0ce-0c6ca3b44758"><con:settings/><con:parameters/><con:method name="reinitialisation" id="a096e9ce-ef85-4a64-a249-8b83bcdefb79" method="DELETE"><con:description>
+Réinitialisation des données dans le web-services</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="Request 1" id="9149d637-4d9f-4279-b42e-216843c25913" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8089</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/gestionutilisateursws/utilisateurs" path="/gestionutilisateursws/utilisateurs" id="091d800d-e3d4-4398-8491-268a460f180e"><con:settings/><con:parameters/><con:method name="getUtilisateurs" id="ee6be01a-669d-48c3-a79a-80f3f8b61b3a" method="GET"><con:description>
+récupère tous les utilisateurs du Web-service</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="Request 1" id="6d1bc5a1-5b94-4fe7-bef4-5383bce59c69" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8089</con:endpoint><con:parameters/></con:request></con:method><con:method name="creerUtilisateur" id="d03206cb-9756-44c1-b1e0-df04fe97ca10" method="POST"><con:description>
+crée un nouvel utilisateur</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>201</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>409</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="c00618cf-b527-4625-9ee4-45307f79427e" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8089</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/gestionutilisateursws/utilisateurs/{id}" path="/gestionutilisateursws/utilisateurs/{id}" id="f23659f3-f744-4597-b860-35f398c67d53"><con:settings/><con:parameters/><con:method name="getUtilisateurById" id="31258d53-34b1-4f5c-a5ed-97a1c415a405" method="GET"><con:description>Retourne un utilisateur
+Récupération d'un utilisateur par son ID</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>id</con:name><con:style>TEMPLATE</con:style><con:description>ID de l'utilisateur à retourner</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:request name="Request 1" id="ea57dadd-bf70-4234-ab11-82c6f28b5f71" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8089</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:interface><con:restMockService id="4068dca5-2dbe-464c-950a-65d5de2973ad" port="8089" path="/" host="AntHueo" name="REST MockService gestionutilisateursws"><con:settings/><con:properties/><con:restMockAction name="/gestionutilisateursws" method="DELETE" resourcePath="/gestionutilisateursws" id="3df1405e-2560-4eda-828d-f35896f8bd34"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Reinitialisation - 1" id="e73d34b6-9e31-4b5b-8a9f-dc9d021f77bb" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response><con:response name="Reinitialisation - 2" id="63ec0bbf-3993-44cc-940e-62ff8a90c217" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response><con:response name="Reinitialisation - 3" id="05f01ae7-69e2-4207-9252-cdb7441605b3" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response></con:restMockAction><con:restMockAction name="/gestionutilisateursws/utilisateurs" method="POST" resourcePath="/gestionutilisateursws/utilisateurs" id="fdcb1c9c-a9b9-4d6e-b5a6-45c1eb5d15aa"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Creation Yohan BOICHUT 201 - KO" id="4c2cef87-84d8-4b11-b43b-05b2c1e1aecd" httpResponseStatus="201"><con:settings/><con:responseContent/><con:header><con:name>Location</con:name><con:value>http://localhost:8089/gestionutilisateursws/utilisateurs/1</con:value></con:header></con:response><con:response name="Creation Yohan BOICHUT 409 - KO" id="e7042e4e-3a63-4c25-a758-913fc1184a38" httpResponseStatus="409"><con:settings/><con:responseContent/></con:response><con:response name="Creation Yohan BOICHUT 201 - OK" id="79a78a39-c6a7-40d5-85c4-216e3db6602c" httpResponseStatus="201"><con:settings/><con:responseContent/><con:header><con:name>Location</con:name><con:value>http://localhost:8089/gestionutilisateursws/utilisateurs/1</con:value></con:header></con:response><con:response name="Creation Yohan BOICHUT 201 - ALL" id="10b4a1c6-dcf2-4127-bfb8-8017f19001c1" httpResponseStatus="201"><con:settings/><con:responseContent/><con:header><con:name>Location</con:name><con:value>http://localhost:8089/gestionutilisateursws/utilisateurs/1</con:value></con:header></con:response><con:response name="Creation Frederic MOAL 201 - ALL" id="00248e2e-c1b5-415f-8b83-8fd7d8838c71" httpResponseStatus="201"><con:settings/><con:responseContent/><con:header><con:name>Location</con:name><con:value>http://localhost:8089/gestionutilisateursws/utilisateurs/2</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/gestionutilisateursws/utilisateurs" method="GET" resourcePath="/gestionutilisateursws/utilisateurs" id="34e237eb-9256-44e7-9778-e59d10680383"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="GET all" id="812fe39a-34bb-45d0-89b6-cd2591a6bb62" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>[{"identifiant":1, "nom":"Boichut", "prenom":"Yohan"},{"identifiant":2, "nom":"Moal", "prenom":"Frederic"}]</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
